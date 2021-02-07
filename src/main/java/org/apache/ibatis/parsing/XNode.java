@@ -208,7 +208,6 @@ public class XNode {
     String value = attributes.getProperty(name);
     return value == null ? def : value;
   }
-
   public Boolean getBooleanAttribute(String name) {
     return getBooleanAttribute(name, null);
   }
