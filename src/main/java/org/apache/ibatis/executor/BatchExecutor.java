@@ -62,13 +62,18 @@ public class BatchExecutor extends BaseExecutor {
       int last = statementList.size() - 1;
       stmt = statementList.get(last);
       applyTransactionTimeout(stmt);
+      // 设置参数
       handler.parameterize(stmt);// fix Issues 322
       BatchResult batchResult = batchResultList.get(last);
       batchResult.addParameterObject(parameterObject);
     } else {
+      // 获取连接
       Connection connection = getConnection(ms.getStatementLog());
+      // 预编译
       stmt = handler.prepare(connection, transaction.getTimeout());
+      // 设置参数
       handler.parameterize(stmt);    // fix Issues 322
+      // 记录当前sql和MappedStatement
       currentSql = sql;
       currentStatement = ms;
       statementList.add(stmt);

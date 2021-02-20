@@ -8,7 +8,7 @@
         <result column="create_time" jdbcType="DATE" property="createTime"/>
         <result column="update_time" jdbcType="DATE" property="updateTime"/>
     </resultMap>
-    <select id="getUserById" parameterType="INTEGER" resultMap="BaseResultMap">
+    <select id="getUserById" parameterType="INTEGER" resultMap="BaseResultMap" useCache="true">
         SELECT * FROM `user` WHERE  id = #{id}
     </select>
 </mapper>

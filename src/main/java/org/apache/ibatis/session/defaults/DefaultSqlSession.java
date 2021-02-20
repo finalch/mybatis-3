@@ -147,9 +147,19 @@ public class DefaultSqlSession implements SqlSession {
     return selectList(statement, parameter, rowBounds, Executor.NO_RESULT_HANDLER);
   }
 
+  /**
+   * @param statement "com.ch.dao.UserMapper.getUserById"
+   * @param parameter getUserById方法的参数
+   * @param rowBounds 分页参数
+   * @param handler   result处理器
+   * @param <E>
+   * @return
+   */
   private <E> List<E> selectList(String statement, Object parameter, RowBounds rowBounds, ResultHandler handler) {
     try {
+      // 从configuration中获取statement对应的MappedStatement <-- 解析mapper.xml得到
       MappedStatement ms = configuration.getMappedStatement(statement);
+      // 执行器执行
       return executor.query(ms, wrapCollection(parameter), rowBounds, handler);
     } catch (Exception e) {
       throw ExceptionFactory.wrapException("Error querying database.  Cause: " + e, e);
