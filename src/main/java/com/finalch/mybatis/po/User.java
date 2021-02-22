@@ -1,4 +1,4 @@
-package com.ch.po;
+package com.finalch.mybatis.po;
 
 import java.util.Date;
 

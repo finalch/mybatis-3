@@ -1,6 +1,6 @@
-package com.ch.dao;
+package com.finalch.mybatis.dao;
 
-import com.ch.po.User;
+import com.finalch.mybatis.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

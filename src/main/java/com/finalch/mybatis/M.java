@@ -1,6 +1,6 @@
-package com.ch;
+package com.finalch.mybatis;
 
-import com.ch.po.User;
+import com.finalch.mybatis.po.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
@@ -23,7 +23,7 @@ public class M {
       SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
       try (SqlSession session = sqlSessionFactory.openSession(ExecutorType.REUSE)) {
         // 执行sql方法
-        User user = (User) session.selectOne("com.ch.dao.UserMapper.getUserById", 1);
+        User user = (User) session.selectOne("com.finalch.mybatis.dao.UserMapper.getUserById", 1);
         System.out.println(user.getName());
       }
     } catch (IOException e) {
