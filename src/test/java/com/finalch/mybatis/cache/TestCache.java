@@ -33,6 +33,13 @@ public class TestCache {
     transaction = new JdbcTransaction(configuration.getEnvironment().getDataSource().getConnection());
   }
 
+  /**
+   * 同一个session
+   * 同一个statement
+   * 同样的查询条件
+   * 同样的分页条件
+   * 同样的sql
+   */
   @Test
   public void localCacheTest() {
     SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -40,6 +47,16 @@ public class TestCache {
     User user = userMapper.getUserById(1);
     System.out.println(user == null ? "null" : user.getName());
     User user1 = userMapper.getUserById(1);
+    System.out.println(user1 == null ? "null" : user1.getName());
+  }
+
+  @Test
+  public void localCacheTest2() {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+    User user = userMapper.getUserById(1);
+    System.out.println(user == null ? "null" : user.getName());
+    User user1 = userMapper.getUserById(2);
     System.out.println(user1 == null ? "null" : user1.getName());
   }
 }

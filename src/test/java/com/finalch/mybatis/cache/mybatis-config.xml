@@ -5,7 +5,7 @@
   <settings>
     <setting name="logImpl" value="LOG4J"/>
     <!-- 一级缓存作用域-->
-    <setting name="localCacheScope" value="STATEMENT"/>
+    <!--<setting name="localCacheScope" value="STATEMENT"/>settings-->
   </settings>
   <environments default="development">
     <environment id="development">
