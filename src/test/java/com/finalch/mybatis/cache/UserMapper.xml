@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finalch.mybatis.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.finalch.mybatis.po.User">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="age" jdbcType="INTEGER" property="age"/>
+    <result column="create_time" jdbcType="DATE" property="createTime"/>
+    <result column="update_time" jdbcType="DATE" property="updateTime"/>
+  </resultMap>
+  <select id="getUserById" parameterType="INTEGER" resultMap="BaseResultMap">
+        SELECT * FROM `user` WHERE  id = #{id}
+    </select>
+  <update id="updateUserName">
+        update `user` set  `name` = #{name} WHERE id = #{id}
+  </update>
+  <update id="updateUserAge">
+        update `user` set  `age` = #{age} WHERE id = #{id}
+  </update>
+</mapper>

@@ -4,6 +4,8 @@
 <configuration>
   <settings>
     <setting name="logImpl" value="LOG4J"/>
+    <!-- 一级缓存作用域-->
+    <setting name="localCacheScope" value="STATEMENT"/>
   </settings>
   <environments default="development">
     <environment id="development">
@@ -17,7 +19,7 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="UserMapper.xml"/>
+    <mapper resource="com/finalch/mybatis/cache/UserMapper.xml"/>
     <!--<mapper class="UserMapper"/>-->
   </mappers>
 </configuration>
